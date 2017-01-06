@@ -23,5 +23,9 @@ websocket.onerror = function(evt) {
 function sendMessage(message) {
     console.log(message)
     $("#response").append("<p>> SENT: " + JSON.stringify(message) + "</p>");
-    websocket.send(message);
+    websocket.send(JSON.stringify(message));
 };
+
+setTimeout(function(){
+  sendMessage(message)
+}, 2000)
