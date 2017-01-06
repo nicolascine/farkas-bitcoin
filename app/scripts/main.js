@@ -25,10 +25,10 @@ ASK_SIZE  = arr[4]; // float Size of the last lowest ask
 
 
 
-var websocket = new WebSocket("wss://api.bitfinex.com/ws/v2");
+var websocket = new WebSocket('wss://api.bitfinex.com/ws/v2');
 
 websocket.onopen = function() {
-    $("#response").append('<p>> CONNECTED</p>');
+    $('#response').append('<p>> CONNECTED</p>');
 };
 
 websocket.onmessage = function(evt) {
@@ -40,12 +40,12 @@ websocket.onmessage = function(evt) {
 
 websocket.onerror = function(evt) {
     //console.log(evt)
-    $("#response").append("<p>> ERROR: " + evt.data + "</p>");
+    $('#response').append('<p>> ERROR: ' + evt.data + '</p>');
 };
 
 function sendMessage(message) {
     //console.log(message)
-    $("#response").append("<p>> SENT: " + JSON.stringify(message) + "</p>");
+    $('#response').append('<p>> SENT: ' + JSON.stringify(message) + '</p>');
     websocket.send(JSON.stringify(message));
 };
 
@@ -60,10 +60,10 @@ function parseData(data){
   var ASK = data[3];
   var ASK_SIZE = data[4];
 
-  $("#response").append("<hr>");
-  $("#response").append("<p>> <b>BID:</b> " + BID + " <b>ASK:</b> " + ASK + "</p>");
-  $("#response").append("<p>> (BID - ASK): " + (BID - ASK) + "</p>");
-  $("#response").append("<p>> (BID_SIZE - ASK_SIZE): " + (BID_SIZE - ASK_SIZE) + "</p>");
-  $("#response").append("<hr>");
+  $('#response').append('<hr>');
+  $('#response').append('<p>> <b>BID:</b> ' + BID + ' <b>ASK:</b> ' + ASK + '</p>');
+  $('#response').append('<p>> (BID - ASK): ' + (BID - ASK) + '</p>');
+  $('#response').append('<p>> (BID_SIZE - ASK_SIZE): ' + (BID_SIZE - ASK_SIZE) + '</p>');
+  $('#response').append('<hr>');
 }
 
