@@ -1,8 +1,3 @@
-var message = {
-    event: 'subscribe',
-    channel: 'ticker',
-    symbol: 'tBTCUSD'
-};
 
 /* Requirement:
 
@@ -24,6 +19,11 @@ ASK_SIZE  = arr[4]; // float Size of the last lowest ask
 - Cuál es el precio de cada BID y cada ASK */
 
 
+var message = {
+    event: 'subscribe',
+    channel: 'ticker',
+    symbol: 'tBTCUSD'
+};
 
 var websocket = new WebSocket('wss://api.bitfinex.com/ws/v2');
 
@@ -39,12 +39,10 @@ websocket.onmessage = function(evt) {
 };
 
 websocket.onerror = function(evt) {
-    //console.log(evt)
     $('#response').append('<p>> ERROR: ' + evt.data + '</p>');
 };
 
 function sendMessage(message) {
-    //console.log(message)
     $('#response').append('<p>> SENT: ' + JSON.stringify(message) + '</p>');
     websocket.send(JSON.stringify(message));
 };
@@ -55,9 +53,9 @@ setTimeout(function() {
 
 function parseData(data){
 
-  var BID = data[1];
+  var BID      = data[1];
   var BID_SIZE = data[2];
-  var ASK = data[3];
+  var ASK      = data[3];
   var ASK_SIZE = data[4];
 
   $('#response').append('<hr>');
