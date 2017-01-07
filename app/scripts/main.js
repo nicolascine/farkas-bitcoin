@@ -51,12 +51,11 @@ function parseData(data) {
     var ASK = data[3];
     var ASK_SIZE = data[4];
 
-    var template = '';
-    template += '<li class="item">';
-    template += '<b>BID:</b> ' + BID + ' <b>ASK:</b> ' + ASK;
-    template += '(BID - ASK): ' + (BID - ASK);
-    template += '(BID_SIZE - ASK_SIZE): ' + (BID_SIZE - ASK_SIZE);
-    template += '</li>';
+    var template = '<li class="item">\
+                    <b class="green">BID:</b> '+ BID +' <b class="red">ASK:</b> '+ ASK +'<br>\
+                    <span class="green">BID - ASK:</span> '+ (BID - ASK) +'<br>\
+                    <span class="red">BID_SIZE - ASK_SIZE:</span> '+ (BID_SIZE - ASK_SIZE) +'\
+                    </li>';
 
     // Display only last 5
     if (countResponses == 5) {
