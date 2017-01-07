@@ -50,8 +50,9 @@ function parseData(data) {
     var BID_SIZE = data[2];
     var ASK = data[3];
     var ASK_SIZE = data[4];
-
+    var date = moment().format('DD-MM-YYYY HH:MM');
     var template = '<li class="item">\
+                    <span class="date"><i class="material-icons">keyboard_arrow_right</i>'+ date +'</span><br>\
                     <b class="green">BID:</b> '+ BID +' <b class="red">ASK:</b> '+ ASK +'<br>\
                     <span class="green">BID - ASK:</span> '+ (BID - ASK) +'<br>\
                     <span class="red">BID_SIZE - ASK_SIZE:</span> '+ (BID_SIZE - ASK_SIZE) +'\
