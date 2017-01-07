@@ -61,7 +61,7 @@ function parseData(data) {
     // Display only last 5
     if (countResponses == 5) {
         countResponses = 4;
-        $('#responses').find('div').last().remove();
+        $('#responses').find('li').last().remove();
     }
     countResponses++;
     $('#responses').prepend(template);
