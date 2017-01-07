@@ -1,4 +1,3 @@
-@import './variables.scss';
 
 /*
  * Base structure
@@ -43,9 +42,10 @@ body {
 
 .navbar-inverse .navbar-collapse,
 .navbar-inverse {
-  background-color: $mainGrey;
-  color: $fontGrey;
+    background-color: $mainGrey;
+    color: $fontGrey;
 }
+
 
 /*
  * Sidebar
@@ -118,25 +118,14 @@ body {
     margin-top: 0;
 }
 
-
 /*
- * Placeholder dashboard ideas
+ * Colors
  */
 
-.placeholders {
-    margin-bottom: 30px;
-    text-align: center;
+.green {
+  color: $fontGreen;
+}
+.red {
+  color: $fontRed;
 }
 
-.placeholders h4 {
-    margin-bottom: 0;
-}
-
-.placeholder {
-    margin-bottom: 20px;
-}
-
-.placeholder img {
-    display: inline-block;
-    border-radius: 50%;
-}
