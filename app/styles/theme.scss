@@ -1,4 +1,3 @@
-
 /*
  * Base structure
  */
@@ -67,8 +66,7 @@ body {
         z-index: 1000;
         display: block;
         padding: 20px;
-        overflow-x: hidden;
-        overflow-y: auto;
+        overflow: hidden;
         /* Scrollable contents if viewport is shorter than content. */
         background-color: $mainBlack;
         color: $fontGrey;
@@ -118,31 +116,35 @@ body {
     margin-top: 0;
 }
 
+
 /*
  * Colors
  */
 
 .green {
-  color: $fontGreen;
+    color: $fontGreen;
 }
 
 .green-lighten {
-  color: lighten($fontGreen, 20%);
+    color: lighten($fontGreen, 20%);
 }
 
 .green-darken {
-  color: darken($fontGreen, 20%);
+    color: darken($fontGreen, 20%);
 }
 
 .red {
-  color: $fontRed;
+    color: $fontRed;
 }
 
 .red-lighten {
-  color: lighten($fontRed, 20%);
+    color: lighten($fontRed, 20%);
 }
+
 .red-darken {
-  color: darken($fontRed, 20%);
+    color: darken($fontRed, 20%);
 }
 
-
+.yellow {
+    color: $fontYellow;
+}
