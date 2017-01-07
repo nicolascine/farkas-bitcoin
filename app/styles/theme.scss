@@ -116,6 +116,9 @@ body {
     margin-top: 0;
 }
 
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: rgba(15, 52, 74, 1);
+}
 
 /*
  * Colors
