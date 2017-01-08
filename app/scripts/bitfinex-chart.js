@@ -16,6 +16,7 @@ class BitfinexChart {
         return {
             chart: {
                 renderTo: this.chartContainer,
+                backgroundColor: '#323b44'
             },
             rangeSelector: {
                 enabled: false

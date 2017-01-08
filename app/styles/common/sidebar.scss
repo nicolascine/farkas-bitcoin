@@ -1,7 +1,8 @@
 .sidebar {
     .item {
+        color: white;
         padding: 10px 5px;
-        border-bottom: 1px solid darken($secondaryGrey, 70%);
+        border-bottom: 1px solid $secondaryGrey;
         i {
             font-size: 0.9em;
         }
