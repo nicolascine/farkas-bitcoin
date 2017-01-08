@@ -4,25 +4,19 @@ const message = {
     channel: 'ticker',
     symbol: 'tBTCUSD'
 }
-const container = $('#responses')
-
-
+const sidebarContainer = $('#responses')
 class FarkasSidebar extends SidebarPlugin {
-    constructor(container) {
-        super(container)
+    constructor(sidebarContainer) {
+        super(sidebarContainer)
     }
 }
-
 class BitfinexWebSocket extends WebsocketClient {
     constructor(endpoint, message) {
         super(endpoint, message)
     }
 }
-
-
-const sidebar = new FarkasSidebar(container);
+const sidebar = new FarkasSidebar(sidebarContainer);
 const bitfinex = new BitfinexWebSocket(endpoint, message);
-
 
 setTimeout(function() {
     bitfinex.sendMessage()

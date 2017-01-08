@@ -1,6 +1,6 @@
 class SidebarPlugin {
-    constructor(container) {
-        this.container = container
+    constructor(sidebarContainer) {
+        this.container = sidebarContainer
         this.countResponses = 0
     }
 
