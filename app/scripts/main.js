@@ -5,7 +5,7 @@ const message = {
     symbol: 'tBTCUSD'
 }
 const sidebarContainer = $('#responses')
-const chartContainer = $('#farkas-plugin')
+const chartContainer = 'farkas-plugin'
 
 class FarkasChart extends BitfinexChart {
     constructor(chartContainer) {
