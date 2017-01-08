@@ -2,9 +2,11 @@ class BitfinexChart {
     constructor(chartContainer) {
         this.seriesOptions = [{
             name: 'BID',
+            color: '#8bc040',
             data: [{}]
         }, {
             name: 'ASK',
+            color: '#de5f66',
             data: [{}]
         }];
         this.chartContainer = chartContainer
@@ -16,7 +18,11 @@ class BitfinexChart {
                 renderTo: this.chartContainer,
             },
             rangeSelector: {
-                selected: 4
+                enabled: false
+            },
+            xAxis: {
+                allowDecimals: false,
+                min: (new Date()).getTime()
             },
             yAxis: {
                 labels: {
@@ -26,8 +32,7 @@ class BitfinexChart {
                 },
                 plotLines: [{
                     value: 0,
-                    width: 3,
-                    color: 'silver'
+                    width: 3
                 }]
             },
             plotOptions: {
@@ -41,7 +46,10 @@ class BitfinexChart {
                 valueDecimals: 2,
                 split: true
             },
-            series: this.seriesOptions
+            series: this.seriesOptions,
+            credits: {
+              enabled: false
+            }
         }
     }
     setChartSeries(data) {
