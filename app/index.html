@@ -9,8 +9,10 @@
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.6/css/highcharts.css" rel="stylesheet">
+
     <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link href="styles/main.css" rel="stylesheet">
     <!-- endbuild -->
 
   </head>
@@ -46,9 +48,7 @@
 
           <div class="row">
             <div class="container-fluid">
-              <div class="col-md-12 farkas-plugin">
-                plugin
-              </div>
+              <div id="farkas-plugin" class="col-md-12"></div>
             </div>
           </div>
 
@@ -186,8 +186,10 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.6/highstock.js"></script>
 
     <!-- build:js scripts/main.js -->
+    <script src="scripts/bitfinex-chart.js"></script>
     <script src="scripts/sidebar-plugin.js"></script>
     <script src="scripts/websocket-client.js"></script>
     <script src="scripts/main.js"></script>
