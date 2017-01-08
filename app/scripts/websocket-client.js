@@ -1,34 +1,44 @@
 class WebsocketClient {
-    constructor() {
-        this.websocket = new WebSocket('wss://api.bitfinex.com/ws/v2')
+    constructor(endpoint, message) {
+        this.websocket = new WebSocket(endpoint)
         this.websocket.onopen = () => {
             this.socketOpen()
         }
-        this.websocket.onmessage = (evt) => {
-            this.socketMessage(evt)
+        this.websocket.onmessage = (event) => {
+            this.socketMessage(event)
         }
-        this.websocket.onerror = (evt) => {
-            this.socketError(evt)
+        this.websocket.onerror = (event) => {
+            this.socketError(event)
         }
-        this.streamArray = []
+        this.message = message
+        this.seriesArray = []
     }
+
     socketOpen() {
-        $('#init').append('<p>> CONNECTED</p>')
+        sidebar.attachStatusMsg('CONNECTED')
     }
-    socketMessage(evt) {
-        if (this.responseIsValid(evt.data)) {
-            this.streamArray.push(evt.data)
+
+    socketMessage(event) {
+        var data = JSON.parse(event.data)
+        if (this.responseIsValid(data)) {
+            this.seriesArray.push(data)
+            sidebar.attachStreamItem(data)
         }
     }
-    socketError(evt) {
-        $('#init').append('<p>> ERROR: ' + evt.data + '</p>')
+
+    socketError(event) {
+        sidebar.attachStatusMsg('ERROR: ' + event.data)
     }
-    sendMessage(message) {
-        $('#init').append('<p>> SENT: ' + JSON.stringify(message) + '</p>')
-        this.websocket.send(JSON.stringify(message))
+
+    sendMessage() {
+        sidebar.attachStatusMsg('SENT: ' + JSON.stringify(message))
+        this.websocket.send(JSON.stringify(this.message))
     }
-    responseIsValid(res) {
-        var isValid = JSON.parse(res).length >= 5 ? true : false;
+
+    responseIsValid(data) {
+        var isValid = data.length >= 5 ? true : false;
         return isValid
     }
+
+
 }
