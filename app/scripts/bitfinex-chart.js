@@ -1,9 +1,42 @@
 class BitfinexChart {
-    constructor(container) {
-        this.container = container
+    constructor(chartContainer) {
+        this.chartContainer = chartContainer
+        this.seriesOptions = []
+        this.chartOptions = this.getOptions()
         this.displayChart()
     }
     displayChart() {
-        this.container.html('>>chart here')
+        Highcharts.stockChart(this.chartContainer, this.chartOptions);
+    }
+    getOptions() {
+        return {
+            rangeSelector: {
+                selected: 4
+            },
+            yAxis: {
+                labels: {
+                    formatter: function() {
+                        return (this.value > 0 ? ' + ' : '') + this.value + '%';
+                    }
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 2,
+                    color: 'silver'
+                }]
+            },
+            plotOptions: {
+                series: {
+                    compare: 'percent',
+                    showInNavigator: true
+                }
+            },
+            tooltip: {
+                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
+                valueDecimals: 2,
+                split: true
+            },
+            series: this.seriesOptions
+        }
     }
 }
