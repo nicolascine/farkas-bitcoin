@@ -23,6 +23,7 @@ class WebsocketClient {
         if (this.responseIsValid(data)) {
             this.seriesArray.push(data)
             sidebar.attachStreamItem(data)
+            chart.setChartSeries(data)
         }
     }
 

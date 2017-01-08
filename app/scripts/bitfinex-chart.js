@@ -1,15 +1,20 @@
 class BitfinexChart {
     constructor(chartContainer) {
+        this.seriesOptions = [{
+            name: 'BID',
+            data: [{}]
+        }, {
+            name: 'ASK',
+            data: [{}]
+        }];
         this.chartContainer = chartContainer
-        this.seriesOptions = []
-        this.chartOptions = this.getOptions()
-        this.displayChart()
-    }
-    displayChart() {
-        Highcharts.stockChart(this.chartContainer, this.chartOptions);
+        this.highchart = new Highcharts.stockChart(this.getOptions());
     }
     getOptions() {
         return {
+            chart: {
+                renderTo: this.chartContainer,
+            },
             rangeSelector: {
                 selected: 4
             },
@@ -21,7 +26,7 @@ class BitfinexChart {
                 },
                 plotLines: [{
                     value: 0,
-                    width: 2,
+                    width: 3,
                     color: 'silver'
                 }]
             },
@@ -38,5 +43,10 @@ class BitfinexChart {
             },
             series: this.seriesOptions
         }
+    }
+    setChartSeries(data) {
+        var time = (new Date()).getTime()
+        this.highchart.series[0].addPoint([time, data[1]], true, false, true);
+        this.highchart.series[1].addPoint([time, data[3]], true, false, true);
     }
 }
