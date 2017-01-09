@@ -11,7 +11,6 @@ class WebsocketClient {
             this.socketError(event)
         }
         this.message = message
-        this.seriesArray = []
     }
 
     socketOpen() {
@@ -21,7 +20,6 @@ class WebsocketClient {
     socketMessage(event) {
         var data = JSON.parse(event.data)
         if (this.responseIsValid(data)) {
-            this.seriesArray.push(data)
             sidebar.attachStreamItem(data)
             chart.setChartSeries(data)
         }
