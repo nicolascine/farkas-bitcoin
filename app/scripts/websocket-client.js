@@ -12,11 +12,9 @@ class WebsocketClient {
         }
         this.message = message
     }
-
     socketOpen() {
         sidebar.attachStatusMsg('CONNECTED')
     }
-
     socketMessage(event) {
         var data = JSON.parse(event.data)
         if (this.responseIsValid(data)) {
@@ -24,20 +22,31 @@ class WebsocketClient {
             chart.setChartSeries(data)
         }
     }
-
     socketError(event) {
         sidebar.attachStatusMsg('ERROR: ' + event.data)
     }
-
     sendMessage() {
         sidebar.attachStatusMsg('SENT: ' + JSON.stringify(message))
-        this.websocket.send(JSON.stringify(this.message))
+        this.waitForConnection(() => {
+            this.websocket.send(JSON.stringify(this.message))
+            if (typeof callback !== 'undefined') {
+                callback();
+            }
+        }, 1000)
     }
-
+    waitForConnection(callback, interval) {
+        if (this.websocket.readyState === 1) {
+            console.log("websocket.readyState == 1")
+            callback()
+        } else {
+            console.log("websocket.readyState !== 1")
+            setTimeout(() => {
+                this.waitForConnection(callback, interval)
+            }, interval)
+        }
+    }
     responseIsValid(data) {
         var isValid = data.length >= 5 ? true : false;
         return isValid
     }
-
-
 }
