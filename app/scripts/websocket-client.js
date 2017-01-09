@@ -19,7 +19,6 @@ class WebsocketClient {
     }
 
     socketMessage(event) {
-        console.log(event)
         var data = JSON.parse(event.data)
         if (this.responseIsValid(data)) {
             this.seriesArray.push(data)
