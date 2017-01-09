@@ -9,17 +9,29 @@ class SidebarPlugin {
     }
 
     attachStreamItem(data) {
-        var BID = data[1]
-        var BID_SIZE = data[2]
-        var ASK = data[3]
-        var ASK_SIZE = data[4]
-        var DATE = moment().format('hh:mm:ss / DD-MM-YYYY')
+        var bid     = data[1]
+        var bidSize = data[2]
+        var ask     = data[3]
+        var askSize = data[4]
+        var date    = moment().format('hh:mm:ss / DD-MM-YYYY')
+        var spread  = (bid - ask).toFixed(2)
+        var spread  = (bid - ask).toFixed(2)
+        var spreadSize = (bidSize - askSize).toFixed(2)
+        var spreadType = ''
+
+        if(spread < 0){
+          spread = spread.toString().substring(1)
+          spreadType = 'down'
+        }else{
+          spreadType = 'up'
+        }
 
         var template = '<li class="item animated fadeIn">\
-                    <span class="date"><i class="material-icons">keyboard_arrow_right</i>' + DATE + '</span>\
-                    <span class="diff-values">Diff Price: <span>' + (BID - ASK) + '</span></span>\
-                    <span class="diff-sizes">Diff Sizes:<span> ' + (BID_SIZE - ASK_SIZE) + '</span></span>\
-                    <span class="values"><b>BID: ' + BID + ' </b><b>ASK: ' + ASK + '</b><span>\
+                    <span class="date"><i class="material-icons">keyboard_arrow_right</i>' + date + '</span>\
+                    <span class="diff-values '+spreadType+'">Spread: <i class="material-icons">arrow_drop_'+spreadType+'</i>\
+                    <span>' + spread + '</span></span>\
+                    <span class="diff-sizes">Diff Sizes:<span> ' + spreadSize + '</span></span>\
+                    <span class="values"><b>bid: ' + bid + ' </b><b>ask: ' + ask + '</b><span>\
                     </li>';
 
         // Display only last 5
