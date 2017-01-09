@@ -13,7 +13,7 @@ class WebsocketClient {
         this.message = message
     }
     socketOpen() {
-        sidebar.attachStatusMsg('CONNECTED')
+        sidebar.attachStatusConnection('Connecting...')
     }
     socketMessage(event) {
         var data = JSON.parse(event.data)
@@ -26,7 +26,8 @@ class WebsocketClient {
         sidebar.attachStatusMsg('ERROR: ' + event.data)
     }
     sendMessage() {
-        sidebar.attachStatusMsg('SENT: ' + JSON.stringify(message))
+        var msgObj = JSON.parse(JSON.stringify(message))
+        sidebar.attachStatusMsg('Connecting to channel ' + msgObj['channel'] + ' > ' + msgObj['symbol'] + '...')
         this.waitForConnection(() => {
             this.websocket.send(JSON.stringify(this.message))
             if (typeof callback !== 'undefined') {
@@ -36,10 +37,11 @@ class WebsocketClient {
     }
     waitForConnection(callback, interval) {
         if (this.websocket.readyState === 1) {
-            console.log("websocket.readyState == 1")
+            sidebar.attachStatusConnection('Connection is OK!')
+            $('.fullpage-loader').fadeOut('slow');
             callback()
         } else {
-            console.log("websocket.readyState !== 1")
+            sidebar.attachStatusConnection('Failed connection')
             setTimeout(() => {
                 this.waitForConnection(callback, interval)
             }, interval)

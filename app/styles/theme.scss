@@ -144,3 +144,26 @@ h3 {
 .yellow {
     color: $fontYellow;
 }
+
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.fullpage-loader {
+  position: fixed;
+  font-family: Roboto, sans-serif;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url(../images/ripple.gif) center no-repeat rgba(50, 59, 68, 1);
+  text-align: center;
+  span {
+    display: block;
+    font-size: 1.5em;
+    margin-top: 20px;
+  }
+  p {
+    color: darken(white, 20%);
+    font-size: 1.1em;
+  }
+}

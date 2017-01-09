@@ -22,6 +22,11 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <div class="fullpage-loader">
+      <span>Loadding...</span>
+      <p class="msg"></p>
+      <p class="connection"></p>
+    </div>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -30,7 +35,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Change Currency</a></li>
+            <!-- <li><a href="#">Change Currency</a></li> -->
           </ul>
         </div>
       </div>
@@ -61,7 +66,13 @@
                 <div class="price-ask">ASK: $<span></span></div>
               </div>
             </div>
-            <div class="container-fluid">
+            <div class="container-fluid main-plugin-container">
+              <div class="col-md-12 collecting-data-loader">
+                <div class="loader">
+                  <img src="/images/ripple.gif" alt="Collecting data">
+                  <p>...Collecting data</p>
+                </div>
+              </div>
               <div id="farkas-plugin" class="col-md-12"></div>
             </div>
           </div>

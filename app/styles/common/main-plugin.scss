@@ -9,13 +9,17 @@
 }
 
 .resume {
-    font-family: 'Unica One', sans-serif;
+    font-family: Roboto, sans-serif;
     padding: 5px 15px 5px 15px;
+    display: block;
+    overflow: hidden;
     .spread-container {
         float: left;
     }
     .spread-col {
-        display: block;
+        overflow: hidden;
+        line-height: 1em;
+        line-height: 2em;
         .spread {
             float: left;
             font-size: 2em;
@@ -30,12 +34,11 @@
             float: left;
             font-size: 1.5em;
             padding-left: 10px;
-            line-height: 2.2em;
             color: darken(white, 20%);
         }
     }
     .spsize-col {
-        display: block;
+        overflow: hidden;
         .sp-size {
             float: left;
             font-size: 2em;
@@ -50,7 +53,7 @@
             float: left;
             font-size: 1.5em;
             padding-left: 10px;
-            line-height: 2.2em;
+            line-height: 1.95em;
             color: darken(white, 20%);
         }
     }
@@ -59,11 +62,38 @@
         display: block;
         font-size: 1.5em;
         opacity: 0.6;
+        font-family: 'Unica One', sans-serif;
     }
     .price-bid {
         @extend .green;
     }
     .price-ask {
         @extend .red;
+    }
+}
+
+.main-plugin-container {
+    position: relative;
+}
+
+.collecting-data-loader {
+    z-index: 10;
+    position: absolute;
+    background-color: $mainBlack;
+    font-family: Roboto, sans-serif;
+    .loader {
+        text-align: center;
+        padding-top: 150px;
+        margin: 0 auto;
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 50px;
+            margin-bottom: 5px;
+        }
+        p {
+            display: block;
+            font-size: 1.2em;
+        }
     }
 }
