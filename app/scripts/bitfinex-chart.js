@@ -3,14 +3,16 @@ class BitfinexChart {
         this.seriesOptions = [{
             name: 'BID',
             color: '#8bc040',
-            data: [{}]
+            data: []
         }, {
             name: 'ASK',
             color: '#de5f66',
-            data: [{}]
+            data: []
         }];
         this.chartContainer = chartContainer
-        this.highchart = new Highcharts.stockChart(this.getOptions());
+        this.countItems = 0
+        this.isReady = false
+        this.highchart = new Highcharts.stockChart(this.getOptions())
     }
     getOptions() {
         return {
@@ -38,7 +40,7 @@ class BitfinexChart {
             },
             plotOptions: {
                 series: {
-                    compare: 'percent',
+                    compare: 'value',
                     showInNavigator: true
                 }
             },
@@ -49,13 +51,25 @@ class BitfinexChart {
             },
             series: this.seriesOptions,
             credits: {
-              enabled: false
+                enabled: false
             }
         }
     }
     setChartSeries(data) {
         var time = (new Date()).getTime()
-        this.highchart.series[0].addPoint([time, data[1]], true, false, true);
-        this.highchart.series[1].addPoint([time, data[3]], true, false, true);
+        var reDraw = this.isReady ? true : false
+        if (!this.isReady) {
+            this.countItems++
+            if (this.countItems == 3) {
+                this.isReady = true
+            }
+        }
+        this.addPoint(time, data, reDraw)
+    }
+    addPoint(time, data, reDraw) {
+        //Add to BID serie
+        this.highchart.series[1].addPoint([time, data[3]], reDraw, false, false)
+        //Add to ASK serie
+        this.highchart.series[0].addPoint([time, data[1]], reDraw, false, false)
     }
 }
