@@ -27,25 +27,19 @@ class BitfinexChart {
                 allowDecimals: false,
                 min: (new Date()).getTime()
             },
-            yAxis: {
+            yAxis: [{
                 labels: {
                     formatter: function() {
-                        return (this.value > 0 ? ' + ' : '') + this.value + '%';
+                        return '$' + this.value
                     }
                 },
                 plotLines: [{
                     value: 0,
                     width: 3
                 }]
-            },
-            plotOptions: {
-                series: {
-                    compare: 'value',
-                    showInNavigator: true
-                }
-            },
+            }],
             tooltip: {
-                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
+                pointFormat: '<span style="color:{series.color}">{series.name}</span> <b>${point.y}</b><br/>',
                 valueDecimals: 2,
                 split: true
             },
@@ -60,15 +54,17 @@ class BitfinexChart {
         var reDraw = this.isReady ? true : false
         if (!this.isReady) {
             this.countItems++
-            if (this.countItems == 3) {
-                this.isReady = true
-            }
+                if (this.countItems == 3) {
+                    this.isReady = true
+                }
         }
         this.addPoint(time, data, reDraw)
     }
     addPoint(time, data, reDraw) {
+
         //Add to BID serie
         this.highchart.series[1].addPoint([time, data[3]], reDraw, false, false)
+
         //Add to ASK serie
         this.highchart.series[0].addPoint([time, data[1]], reDraw, false, false)
     }
