@@ -14,7 +14,10 @@ class SidebarPlugin {
         this.spreadType = null
     }
     attachStatusMsg(msg) {
-        $('#init').append('<p>>' + msg + '</p>')
+        $('.fullpage-loader .msg').html(msg)
+    }
+    attachStatusConnection(msg) {
+      $('.fullpage-loader .connection').html(msg)
     }
     attachStreamItem(data) {
         this.data = data
