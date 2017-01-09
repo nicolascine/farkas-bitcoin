@@ -80,6 +80,7 @@
     z-index: 10;
     position: absolute;
     background-color: $mainBlack;
+    font-family: Roboto, sans-serif;
     .loader {
         text-align: center;
         padding-top: 150px;
@@ -87,7 +88,8 @@
         img {
             display: block;
             margin: 0 auto;
-            max-width: 100px;
+            max-width: 50px;
+            margin-bottom: 5px;
         }
         p {
             display: block;
