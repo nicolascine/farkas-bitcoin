@@ -3,8 +3,37 @@
         color: white;
         padding: 10px 5px;
         border-bottom: 1px solid $secondaryGrey;
+        font-size: 1.3em;
+        span {
+          display: block;
+          padding-left: 17px;
+          text-align: left;
+          color: white;
+          span {
+            color: darken(white, 15%);
+          }
+        }
         i {
-            font-size: 0.9em;
+            font-size: 1em;
+            float: left;
+            line-height: 1.4em;
+        }
+        .date {
+          padding-left: 4px;
+          color: darken(white, 15%);
+        }
+        .diff-sizes,
+        .diff-values {
+            span {
+                padding-left: 0px;
+                display: inline;
+            }
+        }
+        .values {
+          @extend .red;
+          b:first-child {
+            @extend .green;
+          }
         }
     }
 }

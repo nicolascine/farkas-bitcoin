@@ -13,13 +13,13 @@ class SidebarPlugin {
         var BID_SIZE = data[2]
         var ASK = data[3]
         var ASK_SIZE = data[4]
-        var DATE = moment().format('DD-MM-YYYY HH:MM:SS')
+        var DATE = moment().format('HH:MM:SS / DD-MM-YYYY')
 
         var template = '<li class="item animated fadeIn">\
-                    <span class="date"><i class="material-icons">keyboard_arrow_right</i>' + DATE + '</span><br>\
-                    <b class="green">BID:</b> ' + BID + ' <b class="red">ASK:</b> ' + ASK + '<br>\
-                    <span class="green">BID - ASK:</span> ' + (BID - ASK) + '<br>\
-                    <span class="red">BID_SIZE - ASK_SIZE:</span> ' + (BID_SIZE - ASK_SIZE) + '\
+                    <span class="date"><i class="material-icons">keyboard_arrow_right</i>' + DATE + '</span>\
+                    <span class="diff-values">Diff Price: <span>' + (BID - ASK) + '</span></span>\
+                    <span class="diff-sizes">Diff Sizes:<span> ' + (BID_SIZE - ASK_SIZE) + '</span></span>\
+                    <span class="values"><b>BID: ' + BID + ' </b><b>ASK: ' + ASK + '</b><span>\
                     </li>';
 
         // Display only last 5
