@@ -1,9 +1,51 @@
 .sidebar {
     .item {
+        color: white;
         padding: 10px 5px;
-        border-bottom: 1px solid darken($secondaryGrey, 70%);
+        border-bottom: 1px solid $secondaryGrey;
+        font-size: 1.2em;
         i {
-            font-size: 0.9em;
+            font-size: 1em;
+            line-height: 1.4em;
+            display: inline;
+            vertical-align: middle;
+        }
+        span {
+            display: block;
+            padding-left: 17px;
+            color: white;
+            span {
+                color: darken(white, 15%);
+                display: block;
+                text-align: left;
+            }
+            &.up, &.down {
+                span,
+                i {
+                    color: white;
+                    margin-right: -6px;
+                }
+            }
+        }
+        .date {
+            i {
+                float: left;
+            }
+            padding-left: 4px;
+            color: darken(white, 30%);
+        }
+        .diff-sizes,
+        .diff-values {
+            span {
+                padding-left: 0px;
+                display: inline;
+            }
+        }
+        .values {
+            @extend .red;
+            b:first-child {
+                @extend .green;
+            }
         }
     }
 }

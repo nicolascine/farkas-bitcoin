@@ -1,16 +1,18 @@
-<!doctype html>
+<!-- <!doctype html> -->
 <html class="no-js" lang="">
   <head>
     <meta charset="utf-8">
     <meta name="description" content="Farkas bitcoin">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Farkas bitcoin</title>
+    <title>Farkas bitcoin board</title>
     <link href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+
     <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link href="styles/main.css" rel="stylesheet">
     <!-- endbuild -->
 
   </head>
@@ -23,13 +25,12 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <span class="sr-only"><i class="material-icons">trending_up</i> Farkas Bitcoin App</span>
-          <a class="navbar-brand"><i class="material-icons">trending_up</i> <span>Farkas Bitcoin App</span></a>
+          <span class="sr-only"><i class="material-icons">trending_up</i> Farkas Bitcoin Board</span>
+          <a class="navbar-brand"><i class="material-icons">trending_up</i> <span>Farkas Bitcoin Board</span></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Help</a></li>
+            <li><a href="#">Change Currency</a></li>
           </ul>
         </div>
       </div>
@@ -38,145 +39,51 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-3 sidebar">
-          <div id="init"></div>
           <ul id="responses" class="nav nav-sidebar"></ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
           <h1 class="page-header yellow">BTCUSD</h1>
 
           <div class="row">
-            <div class="container-fluid">
-              <div class="col-md-12 farkas-plugin">
-                plugin
+            <div class="resume">
+              <div class="spread-container">
+                <div class="spread-col">
+                  <div class="spread"><span class="icon">$</span><span class="value"></span></div>
+                  <div class="spread-percent"><span></span>%</div>
+                </div>
+                <div class="spsize-col">
+                  <div class="sp-size"><span class="icon">$</span><span class="value"></span></div>
+                  <div class="sp-size-percent"><span></span>%</div>
+                </div>
               </div>
+              <div class="price-col">
+                <div class="price-bid">BID: $<span></span></div>
+                <div class="price-ask">ASK: $<span></span></div>
+              </div>
+            </div>
+            <div class="container-fluid">
+              <div id="farkas-plugin" class="col-md-12"></div>
             </div>
           </div>
 
-          <h2 class="sub-header">Section title</h2>
-          <div class="table-responsive">
+          <h3 class="sub-header">Expand Orders</h3>
+          <div class="table-responsive stream-table">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
+                  <th>BID</th>
+                  <th>BID SIZE</th>
+                  <th>ASK</th>
+                  <th>ASK SIZE</th>
+                  <th>DAILY CHANGE</th>
+                  <th>DAILY CHANGE PERC</th>
+                  <th>LAST PRICE</th>
+                  <th>VOLUME</th>
+                  <th>HIGH</th>
+                  <th>LOW</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
-                </tr>
               </tbody>
             </table>
           </div>
@@ -186,8 +93,11 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.6/highstock.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.6/js/themes/dark-unica.js"></script>
 
     <!-- build:js scripts/main.js -->
+    <script src="scripts/bitfinex-chart.js"></script>
     <script src="scripts/sidebar-plugin.js"></script>
     <script src="scripts/websocket-client.js"></script>
     <script src="scripts/main.js"></script>
