@@ -13,6 +13,11 @@ class BitfinexChart {
         this.countItems = 0
         this.isReady = false
         this.highchart = new Highcharts.stockChart(this.getOptions())
+        Highcharts.setOptions({
+            global: {
+                useUTC: false
+            }
+        });
     }
     getOptions() {
         return {
@@ -24,8 +29,7 @@ class BitfinexChart {
                 enabled: false
             },
             xAxis: {
-                allowDecimals: false,
-                min: (new Date()).getTime()
+                allowDecimals: false
             },
             yAxis: [{
                 labels: {
@@ -61,10 +65,8 @@ class BitfinexChart {
         this.addPoint(time, data, reDraw)
     }
     addPoint(time, data, reDraw) {
-
         //Add to BID serie
         this.highchart.series[1].addPoint([time, data[3]], reDraw, false, false)
-
         //Add to ASK serie
         this.highchart.series[0].addPoint([time, data[1]], reDraw, false, false)
     }
