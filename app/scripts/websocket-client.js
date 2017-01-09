@@ -30,7 +30,7 @@ class WebsocketClient {
         this.waitForConnection(() => {
             this.websocket.send(JSON.stringify(this.message))
             if (typeof callback !== 'undefined') {
-                callback();
+                callback()
             }
         }, 1000)
     }
@@ -46,7 +46,6 @@ class WebsocketClient {
         }
     }
     responseIsValid(data) {
-        var isValid = data.length >= 5 ? true : false;
-        return isValid
+        return data.length >= 5
     }
 }
