@@ -3,13 +3,67 @@
     padding: 0px;
     border: 1px solid $secondaryGrey;
 }
+
 .stream-table {
-  height: 300px;
+    height: 300px;
 }
+
 .resume {
-  font-family: Roboto, sans-serif;
-  padding: 5px 15px 5px 15px;
-  .price {
-    font-size: 3em;
-  }
+    font-family: 'Unica One', sans-serif;
+    padding: 5px 15px 5px 15px;
+    .spread-container {
+        float: left;
+    }
+    .spread-col {
+        display: block;
+        .spread {
+            float: left;
+            font-size: 2em;
+            span.icon {
+                color: darken(white, 20%);
+            }
+            span {
+                padding-left: 3px;
+            }
+        }
+        .spread-percent {
+            float: left;
+            font-size: 1.5em;
+            padding-left: 10px;
+            line-height: 2.2em;
+            color: darken(white, 20%);
+        }
+    }
+    .spsize-col {
+        display: block;
+        .sp-size {
+            float: left;
+            font-size: 2em;
+            span.icon {
+                color: darken(white, 20%);
+            }
+            span {
+                padding-left: 3px;
+            }
+        }
+        .sp-size-percent {
+            float: left;
+            font-size: 1.5em;
+            padding-left: 10px;
+            line-height: 2.2em;
+            color: darken(white, 20%);
+        }
+    }
+    .price-col {
+        float: right;
+        display: block;
+        font-size: 1.5em;
+        opacity: 0.6;
+    }
+    .price-bid {
+        @extend .green;
+    }
+    .price-ask {
+        @extend .red;
+    }
 }
