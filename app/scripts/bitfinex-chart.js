@@ -66,8 +66,8 @@ class BitfinexChart {
     }
     addPoint(time, data, reDraw) {
         //Add to BID serie
-        this.highchart.series[1].addPoint([time, data[3]], reDraw, false, false)
-        //Add to ASK serie
         this.highchart.series[0].addPoint([time, data[1]], reDraw, false, false)
+        //Add to ASK serie
+        this.highchart.series[1].addPoint([time, data[3]], reDraw, false, false)
     }
 }
